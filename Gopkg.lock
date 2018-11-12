@@ -3,25 +3,49 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:b232a3ac7f53bb3fb0770d9a65e447f5bc069066374321ab73367d0a52185438"
   name = "github.com/bitrise-io/go-utils"
-  packages = ["colorstring","command","command/rubycommand","errorutil","fileutil","log","pathutil","retry"]
-  revision = "4ea9c35054b7f8cce3940bf73b5dcd395e9c9226"
+  packages = [
+    "colorstring",
+    "command",
+    "command/rubycommand",
+    "errorutil",
+    "fileutil",
+    "log",
+    "pathutil",
+    "retry",
+  ]
+  pruneopts = ""
+  revision = "ac1c3703414f93ff9ed011d5121f4f265ab7754b"
 
 [[projects]]
   branch = "master"
+  digest = "1:72a8d801f07bd7a986bbe233f5e9b93e636e3728ed9712dfc0b6dc56820f5fe1"
   name = "github.com/bitrise-tools/go-steputils"
   packages = ["input"]
+  pruneopts = ""
   revision = "a848c9870ff7d745a8fb2a951e1c81fcb147b4ec"
 
 [[projects]]
   branch = "master"
+  digest = "1:60933a9b794dd76601b4ef174ecc399339460c6484926f643189fd66eb5e3f3c"
   name = "github.com/kballard/go-shellquote"
   packages = ["."]
+  pruneopts = ""
   revision = "cd60e84ee657ff3dc51de0b4f55dd299a3e136f2"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "1ae962ae56a5f9f5cd70db71f3bd50c3ab5771e09404be0a54278ef82aa5da5e"
+  input-imports = [
+    "github.com/bitrise-io/go-utils/command",
+    "github.com/bitrise-io/go-utils/command/rubycommand",
+    "github.com/bitrise-io/go-utils/fileutil",
+    "github.com/bitrise-io/go-utils/log",
+    "github.com/bitrise-io/go-utils/pathutil",
+    "github.com/bitrise-io/go-utils/retry",
+    "github.com/bitrise-tools/go-steputils/input",
+    "github.com/kballard/go-shellquote",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1

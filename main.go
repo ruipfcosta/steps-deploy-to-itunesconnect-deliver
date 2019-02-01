@@ -60,7 +60,7 @@ func createConfigsModelFromEnvs() ConfigsModel {
 		SkipMetadata:         os.Getenv("skip_metadata"),
 		SkipScreenshots:      os.Getenv("skip_screenshots"),
 		SkipAppVersionUpdate: os.Getenv("skip_app_version_update"),
-		UsePhasedRelease      os.Getenv("use_phased_release"),
+		UsePhasedRelease:     os.Getenv("use_phased_release"),
 		TeamID:               os.Getenv("team_id"),
 		TeamName:             os.Getenv("team_name"),
 		Platform:             os.Getenv("platform"),

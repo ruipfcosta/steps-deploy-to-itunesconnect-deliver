@@ -159,7 +159,7 @@ inputs:
       title: "Use Phased Release?"
       description: Release gradually over a 7-day period to users with automatic updates turned on.
       value_options: ["yes", "no"]
-      is_required: true
+      is_required: false
   - gemfile_path: ./Gemfile
     opts:
       category: Debug

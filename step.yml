@@ -154,6 +154,12 @@ inputs:
       description: Don't update app version for submission.
       value_options: ["yes", "no"]
       is_required: true
+  - use_phased_release: "no"
+    opts:
+      title: "Use Phased Release?"
+      description: Release gradually over a 7-day period to users with automatic updates turned on.
+      value_options: ["yes", "no"]
+      is_required: true
   - gemfile_path: ./Gemfile
     opts:
       category: Debug

@@ -34,6 +34,7 @@ type ConfigsModel struct {
 	SkipMetadata         string
 	SkipScreenshots      string
 	SkipAppVersionUpdate string
+	UsePhasedRelease     string
 	TeamID               string
 	TeamName             string
 	Platform             string
@@ -59,6 +60,7 @@ func createConfigsModelFromEnvs() ConfigsModel {
 		SkipMetadata:         os.Getenv("skip_metadata"),
 		SkipScreenshots:      os.Getenv("skip_screenshots"),
 		SkipAppVersionUpdate: os.Getenv("skip_app_version_update"),
+		UsePhasedRelease      os.Getenv("use_phased_release"),
 		TeamID:               os.Getenv("team_id"),
 		TeamName:             os.Getenv("team_name"),
 		Platform:             os.Getenv("platform"),
@@ -86,6 +88,7 @@ func (configs ConfigsModel) print() {
 	log.Printf("- SkipMetadata: %s", configs.SkipMetadata)
 	log.Printf("- SkipScreenshots: %s", configs.SkipScreenshots)
 	log.Printf("- SkipAppVersionUpdate: %s", configs.SkipAppVersionUpdate)
+	log.Printf("- UsePhasedRelease: %s", configs.UsePhasedRelease)
 	log.Printf("- TeamID: %s", configs.TeamID)
 	log.Printf("- TeamName: %s", configs.TeamName)
 	log.Printf("- Platform: %s", configs.Platform)
@@ -139,6 +142,10 @@ func (configs ConfigsModel) validate() error {
 
 	if err := input.ValidateWithOptions(configs.SkipAppVersionUpdate, "yes", "no"); err != nil {
 		return fmt.Errorf("SkipAppVersionUpdate, %s", err)
+	}
+
+	if err := input.ValidateWithOptions(configs.UsePhasedRelease, "yes", "no"); err != nil {
+		return fmt.Errorf("UsePhasedRelease, %s", err)
 	}
 
 	if err := input.ValidateWithOptions(configs.Platform, "ios", "osx", "appletvos"); err != nil {
@@ -431,6 +438,10 @@ This means that when the API changes
 
 	if configs.SkipAppVersionUpdate == "yes" {
 		args = append(args, "--skip_app_version_update")
+	}
+
+	if configs.UsePhasedRelease == "yes" {
+		args = append(args, "--phased_release")
 	}
 
 	args = append(args, "--force")
